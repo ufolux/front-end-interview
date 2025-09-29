@@ -33,3 +33,16 @@
 ## 4. 是不是所有的 setState 都需要放在 useEffect 里？
 
 不是，恰恰相反，绝大多数的 setState 都不应该、也不需要放在 useEffect 里
+
+## 5. setState 是异步的还是同步的
+在React控制的事件中，更新会被批处理 ·在setTimeout、Promise等异步操作中，React 18 前是同步更新 ·通过isBatchingUpdates标识控制批处理
+
+
+## 6. context API 用处，可能会导致的问题，怎么解决
+Context性能问题 Q:Context更新导致的性能问题及解决方案？A:问 题：Context值改变会重渲染所有消费组件 解决方案: // 1.拆分Context const StateContext = createContext(); const DispatchContext = createContext(); // 2.使用useMemo优化 const value = useMemo((）=>({
+
+## 7. 什么是 react fiber? 它如何解决主线程 阻塞问题？A:Fiber架构特点: ·时间切片：将渲染工作分割成小块，可中断 ·优先级调度：不同更新有不同优先级 ·双缓存：current树和workInProgress树 工作流程: 1.Scheduler调度：根据优先级决定何时执行任务 2.Reconciler协调：构建Fiber树，可中断 3.Renderer渲染：提交DOM更新，不可中断 中断机制：通过requestIdleCallback或 MessageChannel实现时间切片
+
+
+## 8. react query 
+
